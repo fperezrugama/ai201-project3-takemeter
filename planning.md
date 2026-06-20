@@ -332,7 +332,6 @@ I will analyze whether the model's confidence scores are meaningful and calibrat
 
 ### Deployed Interface
 
-**Status:** ❌ Not Completed (Optional)
 
 I will build a simple web interface that accepts a new post, runs it through the classifier, and displays the label and confidence.
 
@@ -351,7 +350,6 @@ I will build a simple web interface that accepts a new post, runs it through the
 
 ### Inter-Annotator Reliability
 
-**Status:** ❌ Not Completed (Optional)
 
 I will have at least one other person label 30+ of my examples independently and report agreement rate.
 
