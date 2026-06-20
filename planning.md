@@ -275,3 +275,93 @@ During annotation of 210 examples, I encountered several difficult cases that re
 **Decision:** hot_take
 
 **Why:** While there's a specific observation about Ronaldo's behavior, the framing is purely opinionated with no evidence. The "bro chill" indicates it's a dismissive hot take rather than a serious tactical observation. This taught me that observations alone don't make analysis - they need reasoning and evidence to support the point.
+
+## 8. Stretch Features Plan
+
+### Error Pattern Analysis
+
+**Status:** ✅ Completed
+
+I will analyze the wrong predictions from my fine-tuned model to identify systematic patterns in the errors. Based on my initial review of the confusion matrix and wrong predictions, I plan to investigate:
+
+**What I'll look for:**
+- Which label pair is most frequently confused (analysis ↔ hot_take appears to be the primary confusion)
+- Common characteristics among errors (post length, use of sarcasm, presence of statistics)
+- Whether the model struggles more with short or long posts
+- Whether certain topics (e.g., Ronaldo vs Messi debates) confuse the model more
+
+**Method:**
+1. Extract all wrong predictions from the test set
+2. Group errors by true label and predicted label
+3. Re-read each error to identify common themes
+4. Use Claude to surface patterns I might miss
+5. Verify patterns by re-reading examples
+
+**How I'll document:**
+- Include the identified pattern in the evaluation report
+- Show representative examples of the pattern
+- Explain why the model struggles with this pattern
+- Suggest what would need to change to fix it
+
+---
+
+### Confidence Calibration
+
+**Status:** ✅ Completed
+
+I will analyze whether the model's confidence scores are meaningful and calibrated.
+
+**What I'll investigate:**
+- Do high-confidence predictions (>70%) get it right more often than low-confidence predictions (<50%)?
+- Is there a correlation between confidence and accuracy?
+- Are there certain labels where confidence is consistently misleading?
+
+**Method:**
+1. Extract confidence scores for all test predictions
+2. Compare confidence distribution for correct vs incorrect predictions
+3. Calculate average confidence for correct and incorrect predictions
+4. Analyze if any label has systematically overconfident or underconfident predictions
+
+**How I'll document:**
+- Report average confidence for correct vs incorrect predictions
+- Include a table showing confidence distribution
+- State whether confidence scores are meaningful or not
+- Explain implications for deployment
+
+---
+
+### Deployed Interface
+
+**Status:** ❌ Not Completed (Optional)
+
+I will build a simple web interface that accepts a new post, runs it through the classifier, and displays the label and confidence.
+
+**Planned approach:**
+- Use Gradio or Streamlit for the interface
+- Load the fine-tuned model from HuggingFace
+- Accept text input and display predicted label + confidence score
+- Show confidence as a percentage or bar
+
+**How I'll document:**
+- Include code in the repository
+- Document how to run the interface in the README
+- Show a screenshot of the interface in the README
+
+---
+
+### Inter-Annotator Reliability
+
+**Status:** ❌ Not Completed (Optional)
+
+I will have at least one other person label 30+ of my examples independently and report agreement rate.
+
+**Planned approach:**
+- Select 30 random examples from the dataset
+- Provide label definitions and edge case rules to the second annotator
+- Calculate Cohen's kappa or simple percentage agreement
+- Analyze where disagreements occurred
+
+**How I'll document:**
+- Report agreement rate in the README
+- Analyze 2-3 disagreements and explain why they occurred
+- Discuss implications for dataset quality
