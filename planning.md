@@ -232,3 +232,46 @@ How I'll verify patterns:
 4. Document patterns in the evaluation report (README)
 5. If LLM suggests patterns I don't see, note that too (shows I critically evaluated)
 
+## Hard Annotation Decisions (from Milestone 3)
+
+During annotation of 210 examples, I encountered several difficult cases that required careful application of my decision rules. Below are three representative examples that illustrate the challenges of labeling real-world discourse.
+
+### Case 1: Statistics with Emotional Framing
+**Comment:** *"0.69 xG with 75% possession? LMAO Martinez is useless"*
+
+| Label Considered | Reasoning |
+|------------------|-----------|
+| analysis | Contains specific stats (0.69 xG, 75% possession) |
+| hot_take | Emotional framing ("LMAO Martinez is useless") |
+
+**Decision:** hot_take
+
+**Why:** The statistics are decorative around the emotional opinion. If you remove the emotional framing, the core argument is weak. The primary purpose is to attack Martinez, not to analyze the stats. This reinforced the rule that data must be central to the argument, not just decoration.
+
+---
+
+### Case 2: Meme Format with a Valid Observation
+**Comment:** *"Iberia 🤝 possession with no end product"*
+
+| Label Considered | Reasoning |
+|------------------|-----------|
+| analysis | Identifies a real pattern about Iberian teams |
+| reaction | Meme format, humorous framing |
+
+**Decision:** reaction
+
+**Why:** While there's a valid observation about Iberian teams, the primary purpose is humor/meme format. The comment isn't trying to prove or argue anything - it's making a funny observation. This highlighted that presentation matters: even substantive observations can be reactions if the intent is entertainment rather than argument.
+
+---
+
+### Case 3: Behavioral Observation with Opinion Framing
+**Comment:** *"Everytime they got remotely close to the box he lifted his arm and ran towards goal even if he was in a bad position. Like, bro chill"*
+
+| Label Considered | Reasoning |
+|------------------|-----------|
+| analysis | Observes specific player behavior |
+| hot_take | Opinionated framing, no evidence |
+
+**Decision:** hot_take
+
+**Why:** While there's a specific observation about Ronaldo's behavior, the framing is purely opinionated with no evidence. The "bro chill" indicates it's a dismissive hot take rather than a serious tactical observation. This taught me that observations alone don't make analysis - they need reasoning and evidence to support the point.
